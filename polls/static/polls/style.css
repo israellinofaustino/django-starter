@@ -1,4 +1,52 @@
-li a {
+@import "compass";
+
+html,
+body {
+    height: 100%;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+    color: #fff;
+    background-color: rgba(169, 169, 169, 0.461);
+}
+
+.list {
+    background-color: #fff;
+    width: 350px;
+    display: inline-block;
+    border-radius: 1cm;
+    margin-top: 1cm;
+}
+
+.list h3 {
+    color: #fff;
+    background-color: #6CC9C2;
+    margin: 0 0 0 0;
+    padding: 0.7em 0;
+    font-weight: 200;
+    border-radius: 1cm;
+}
+
+ul {
+    margin: 10% 0;
+}
+
+ul li {
+    list-style-type: none;
+    text-align: left;
+    padding: 5% 0%;
+}
+
+span a{
+    margin-left: 10px;
+    vertical-align: super;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/* li a {
     color: green;
     font-weight: bold;
     text-decoration: none;
@@ -8,4 +56,4 @@ li a {
 body {
     background: white url("images/background.png") no-repeat;
     background-size: 100%;
-}
+} */
