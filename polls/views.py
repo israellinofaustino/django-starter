@@ -30,6 +30,12 @@ class ResultsView(generic.DetailView):
     template_name = "polls/results.html"
 
 
+class DeleteView(generic.DeleteView):
+    model = Question
+    success_url="/"
+    template_name = "polls/delete.html"
+
+
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -46,3 +52,18 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+
+def delete(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    try:
+        question_i = question.choice_set.get(pk=request.POST["delete"])
+    except (KeyError,Question.DoesNotExist):
+        return render(request, "polls/delete.html",
+                  {
+                    "question_id": question_id,
+                  },
+                )
+    else:
+        question_i.delete()
+        return HttpResponseRedirect(reverse("polls:index", args=(question.id,)))

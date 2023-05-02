@@ -11,8 +11,6 @@ class Question(models.Model):
     pub_date = models.DateTimeField("date published")
     def __str__(self):
         return self.question_text
-    # def was_published_recently(self):
-    #     return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
     @admin.display(
         boolean=True,
         ordering="pub_date",

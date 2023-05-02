@@ -24,5 +24,6 @@
         {% endfor %}
         <button type="submit" value="Vote" class="button button1">Vote</button>
         <a class="button button1" href="{% url 'polls:index' %}" style="float: left;">Home Page</a>
+        <button class="button button3" style="float: right;"><a href="{% url 'polls:delete' question.id %}">Delete</a></button>
     </div>
 </form>
